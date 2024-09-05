@@ -91,7 +91,7 @@ do{let diferenca
     }
 }while(numerojogador !== numeroInicial)*/
 
-/*const numeroInicial = Math.floor(Math.random(1)*50);
+/*const numeroInicial = Math.floor(Math.random()*50);
 let numeroTentativa = 0
 let numerojogador = 0
 do{let diferenca
