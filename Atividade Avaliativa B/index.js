@@ -65,18 +65,20 @@ function removerPersonagen(personagenNum){
 
 function listaPersonagens(){
     //utiliza o metodo sort pra ordenar o array comparando com o nome de cada objeto
-    console.log(personagens.sort(function (a,b){
+    return personagens.sort(function (a,b){
         //aqui tem a função para comparar os nomes
         if(a.nome < b.nome){
             return -1
         }else{
             return 1
         }
-    }))
+        
+    })
 
 }
 
 function escolha(){
+    //as escolhas principais do usuario
     const esc = Number(prompt("Escolha entre criar personagen(0),Selecionar Personagen(1),Remover Personagen(2), listar personagens(3)"))
     if(esc === 0){
         nome= prompt("Escolha um nome")
@@ -104,6 +106,13 @@ function escolha(){
 
     }else{
         listaPersonagens()
+        let frase = ""
+        for(personagen of personagens){
+            frase += "Nome: "+personagen.nome+" Classe: "+personagen.classe+" Nivel: "+personagen.nivel+" HP: "+personagen.hp+" habilidades: "+personagen.habilidades+" ações realizadas: "+personagen.acoesRealizadas+" |  "
+
+        }
+
+        alert(frase)
     }
 }
 
@@ -118,6 +127,7 @@ function acao(personagem){
     }else if(decisao === 1){
         defender(personagem)
     }else(
+        //pra poder voltar pras escolhas principais
         escolha()
     )
     }else{
