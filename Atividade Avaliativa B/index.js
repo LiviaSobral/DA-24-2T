@@ -81,6 +81,7 @@ function escolha(){
     //as escolhas principais do usuario
     const esc = Number(prompt("Escolha entre criar personagen(0),Selecionar Personagen(1),Remover Personagen(2), listar personagens(3)"))
     if(esc === 0){
+        //esse if vai salvar a respostas do usuario em uma variavel e vai então jogar na função essas respostas
         nome= prompt("Escolha um nome")
         classe= prompt("escolha uma classe")
         nivel= Number(prompt("Digite um nivel"))
@@ -88,6 +89,7 @@ function escolha(){
         hp = 10 + nivel*2
         cadastraPersonagen(nome,classe,nivel,hp,[habilidades])
     }else if(esc ===1){
+        //esse if vai mostrar as opções de personagens para selecionar e dependendo da escolha vai mandar o numero pra função acao
         let frase = ""
         for(i=0;i<personagens.length;i++){
             frase = frase + "|O personagen "+personagens[i].nome+" esta na posição ("+i+") |"}
@@ -95,6 +97,7 @@ function escolha(){
         perNum = Number(prompt(frase))
         acao(perNum)
     }else if(esc ===2){
+        //esse if vai mostrar as opções de personagens e vai pedir um numero para deletar um deles
         let frase = ""
         for(i=0;i<personagens.length;i++){
             frase = frase + "|O personagen "+personagens[i].nome+" esta na posição ("+i+") |"}
@@ -105,6 +108,7 @@ function escolha(){
 
 
     }else{
+        //esse if vai chamar primeiramente a função lista que ordena os personagens alfabeticamente e então mostra para o usuario os personagens
         listaPersonagens()
         let frase = ""
         for(personagen of personagens){
@@ -117,14 +121,19 @@ function escolha(){
 }
 
 function acao(personagem){
+    //essa função é onde o usuario vai poder controlar o personagen e suas ações
     if(personagens[personagem].hp>0){
+        //sempre que a função iniciar ela chama a função status para mostrar o status do personagen
         status(personagem)
     decisao = Number(prompt("Escolha entre atacar(0), defender(1), usar uma habilidade especial(2) ou voltar para o menu de opções(3)"))
     if(decisao === 0){
+        //esse if chama a função atacar
         atacar(personagem)
     }else if(decisao ===2){
+        //esse if chama a função habilidade
         habilidade(personagem,0)
     }else if(decisao === 1){
+        //esse if chama a função defender
         defender(personagem)
     }else(
         //pra poder voltar pras escolhas principais
@@ -135,10 +144,6 @@ function acao(personagem){
     }
     
 }
-
-
-
-cadastraPersonagen("Alberto","arqueiro",2,14,["Flechas de fogo"])
 
 
 escolha()
