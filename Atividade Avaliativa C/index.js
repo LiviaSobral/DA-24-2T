@@ -1,5 +1,5 @@
 personagens =[{nome:"Link",vida:20,forca:10,resistencia:7}]
-armas =[{nome:"Espada",dano:6,alcance:0},{nome:"Espada Longa",dano:7,alcance:1},{nome:"Arco",dano:5,alcance:10}]
+armas =[{nome:"Espada",dano:6,alcance:1},{nome:"Espada Longa",dano:7,alcance:2},{nome:"Arco",dano:5,alcance:10}]
 itens =[{nome:"Poção de vida",efeito:"Regeneração de vida"},{nome:"Rupees",efeito:"Nenhum"},{nome:"Bomba",efeito:"Dano Explosivo"}]
 
 function erro(motivo,local){
