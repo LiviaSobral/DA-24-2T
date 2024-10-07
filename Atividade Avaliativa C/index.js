@@ -1,4 +1,4 @@
-personagens =[{nome:"Link",vida:20,forca:10,resistencia:7}]
+personagens =[{nome:"Link",vida:20,forca:10,resistencia:7},{nome:-1,vida:30,forca:12431,resistencia:2}]
 armas =[{nome:"Espada",dano:6,alcance:1},{nome:"Espada Longa",dano:7,alcance:2},{nome:"Arco",dano:5,alcance:10}]
 itens =[{nome:"Poção de vida",efeito:"Regeneração de vida"},{nome:"Rupees",efeito:"Nenhum"},{nome:"Bomba",efeito:"Dano Explosivo"}]
 
@@ -34,6 +34,42 @@ function lista(){
     menuPrincipal()
 }
 
+function validaArray(){
+    for(i=0;i<personagens.length-1;i++){
+        if((typeof personagens[i].nome) !== String){
+            alert(i)
+            alert(personagens[i].nome)
+            alert(typeof personagens[i].nome)
+            personagens.splice(i,1)
+        }
+        if(typeof personagens[i].vida !==Number|| personagens[i].vida >20 ||personagens[i].vida <0){
+            alert(personagens[i].vida)
+            personagens.splice(i,1)
+        }
+        
+    }
+    for(i=0;i<armas.length-1;i++){
+        if(typeof armas[i].nome!== String){
+            armas.splice(i,1)
+        }
+        if(typeof armas[i].dano!== Number){
+            armas.splice(i,1)
+        }
+        if(typeof armas[i].alcance!== Number){
+            armas.splice(i,1)
+        }
+    }
+    for(i=0;i<itens.length-1;i++){
+        if(typeof itens[i].nome!==String){
+            itens.splice(i,1)
+        }
+        if(typeof itens[i].efeito!==String){
+            itens.splice(i,1)
+        }
+    }
+}
+
+
 function menuPrincipal(){
     //O menu principal onde as funções podem ser acessadas e iniciadas
     resposta=Number(prompt("Escolha uma das opções (1)Lista (2)Validar Personagen (3)Validar Arma (4) Validar Iten"))
@@ -47,9 +83,11 @@ function menuPrincipal(){
     }else if(resposta===3){
         validarArmas()
         //chama função validar armas
-    }else{
+    }else if(resposta ===1){
         lista()
         //chama função lista
+    }else{
+        erro("Commando","menu principal")
     }
 
 
@@ -182,5 +220,5 @@ alert("Arma Validada com sucesso")
     menuPrincipal()
     //retorna ao menu principal
 }
-
+validaArray()
 menuPrincipal()
